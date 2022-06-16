@@ -4,6 +4,7 @@
  */
 package com.marcosvr.validadordados.view;
 
+import com.marcosvr.validadordados.Validador;
 import javax.swing.JOptionPane;
 
 /**
@@ -97,7 +98,13 @@ public class ValidarCPFView extends javax.swing.JFrame {
         if (jftCPF.getText().replace(" ", "").replace("-", "").replace(".", "").length() < 11) {
             JOptionPane.showMessageDialog(null, "Por favor, digite o CPF completo!");
         } else {
-            // TODO
+            
+            Validador validar = new Validador();
+            if (validar.validarCPF(jftCPF.getText())) {
+                JOptionPane.showMessageDialog(this, "O CPF " + jftCPF.getText() + " É um CPF válido!");
+            } else {
+                JOptionPane.showMessageDialog(this, "O CPF " + jftCPF.getText() + " NÃO é um CPF válido!");
+            }
         }
     }//GEN-LAST:event_btnValidarActionPerformed
 
