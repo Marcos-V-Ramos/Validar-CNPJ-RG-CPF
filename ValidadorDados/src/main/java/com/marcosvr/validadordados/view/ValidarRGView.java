@@ -4,6 +4,7 @@
  */
 package com.marcosvr.validadordados.view;
 
+import com.marcosvr.validadordados.Validador;
 import javax.swing.JOptionPane;
 
 /**
@@ -103,10 +104,16 @@ public class ValidarRGView extends javax.swing.JFrame {
     }//GEN-LAST:event_jftRGActionPerformed
 
     private void btnValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidarActionPerformed
-       if(jftRG.getText().replace(" ", "").replace("-", "").replace(".", "").length() < 9) {
+        if(jftRG.getText().replace(" ", "").replace("-", "").replace(".", "").length() < 9) {
            JOptionPane.showMessageDialog(null, "Por favor, digite o RG completo!");
-       } else {
-           // TODO
+        } else {
+          
+            Validador validar = new Validador();
+            if (validar.validarRG(jftRG.getText())) {
+                JOptionPane.showMessageDialog(this, "O CPF " + jftRG.getText() + " É um RG válido!");
+            } else {
+                JOptionPane.showMessageDialog(this, "O CPF " + jftRG.getText() + " NÃO é um RG válido!");
+            }
        }
     }//GEN-LAST:event_btnValidarActionPerformed
 

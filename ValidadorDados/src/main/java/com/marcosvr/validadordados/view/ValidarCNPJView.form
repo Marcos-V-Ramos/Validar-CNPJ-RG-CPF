@@ -35,7 +35,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="lblValidar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jftCPNJ" pref="128" max="32767" attributes="0"/>
+                      <Component id="jftCNPJ" pref="128" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -55,7 +55,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblValidar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jftCPNJ" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jftCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="51" max="32767" attributes="0"/>
               <Component id="btnValidar" min="-2" max="-2" attributes="0"/>
@@ -78,7 +78,7 @@
         <Property name="text" type="java.lang.String" value="Digite o CNPJ: "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jftCPNJ">
+    <Component class="javax.swing.JFormattedTextField" name="jftCNPJ">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
           <Format format="##.###.###/####-##" subtype="-1" type="5"/>

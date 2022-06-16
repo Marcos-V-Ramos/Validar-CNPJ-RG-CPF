@@ -1,5 +1,6 @@
 package com.marcosvr.validadordados.view;
 
+import com.marcosvr.validadordados.Validador;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,7 +27,7 @@ public class ValidarCNPJView extends javax.swing.JFrame {
 
         lblCNPJ = new javax.swing.JLabel();
         lblValidar = new javax.swing.JLabel();
-        jftCPNJ = new javax.swing.JFormattedTextField();
+        jftCNPJ = new javax.swing.JFormattedTextField();
         btnValidar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -38,7 +39,7 @@ public class ValidarCNPJView extends javax.swing.JFrame {
         lblValidar.setText("Digite o CNPJ: ");
 
         try {
-            jftCPNJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+            jftCNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -64,7 +65,7 @@ public class ValidarCNPJView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblValidar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jftCPNJ, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)))
+                        .addComponent(jftCNPJ, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(73, 73, 73)
@@ -79,7 +80,7 @@ public class ValidarCNPJView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblValidar)
-                    .addComponent(jftCPNJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jftCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(btnValidar)
                 .addGap(35, 35, 35))
@@ -89,10 +90,16 @@ public class ValidarCNPJView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidarActionPerformed
-        if (jftCPNJ.getText().replace(" ", "").replace("-", "").replace(".", "").length() < 14) {
+        if (jftCNPJ.getText().replace(" ", "").replace("-", "").replace(".", "").length() < 14) {
             JOptionPane.showMessageDialog(null, "Por favor, digite o CNPJ completo!");
         } else {
-            // TODO
+            
+            Validador validar = new Validador();
+            if (validar.validarCNPJ(jftCNPJ.getText())) {
+                JOptionPane.showMessageDialog(this, "O CPF " + jftCNPJ.getText() + " É um CNPJ válido!");
+            } else {
+                JOptionPane.showMessageDialog(this, "O CPF " + jftCNPJ.getText() + " NÃO é um CNPJ válido!");
+            }
         }
     }//GEN-LAST:event_btnValidarActionPerformed
 
@@ -133,7 +140,7 @@ public class ValidarCNPJView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnValidar;
-    private javax.swing.JFormattedTextField jftCPNJ;
+    private javax.swing.JFormattedTextField jftCNPJ;
     private javax.swing.JLabel lblCNPJ;
     private javax.swing.JLabel lblValidar;
     // End of variables declaration//GEN-END:variables
