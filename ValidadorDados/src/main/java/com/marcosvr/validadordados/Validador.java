@@ -6,7 +6,7 @@ package com.marcosvr.validadordados;
  */
 public class Validador {
     
-    public boolean validarCPF(String CPF) {
+    public static boolean validarCPF(String CPF) {
         String cpfFormatado = CPF.replace(".", "").replace("-", "");
         int noveDigitosMultiplicados = 0;
         int dozeDigitosMultiplicados = 0;
@@ -49,7 +49,7 @@ public class Validador {
         return ehValidoPrimeiroDigito && ehValidoSegundoDigito;
     }
     
-    public boolean validarRG(String RG) {
+    public static boolean validarRG(String RG) {
         String RGFormatado = RG.replace(".", "").replace("-", "");
         int somaOitoDigitos = 0;
         int contadorOitoDigitos = 2;
@@ -73,7 +73,7 @@ public class Validador {
         return RGFormatado.charAt(8) == digitoVerificador;
     }
     
-    public boolean validarCNPJ(String CNPJ) {
+    public static boolean validarCNPJ(String CNPJ) {
         String CNPJformatado = CNPJ.replace(".", "").replace("/", "").replace("-", "");
         int contadorDozeDigitos = 5;
         int somaDozeDigitos = 0;
